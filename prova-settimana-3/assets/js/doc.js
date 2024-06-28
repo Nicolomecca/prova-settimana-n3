@@ -138,7 +138,7 @@ console.log(sum);
   Crea una variabile chiamata "random" e assegnaci un numero casuale tra 0 e 20 (deve essere generato dinamicamente a ogni esecuzione).
 */
 let random = Math.floor(Math.random() * 21);
-console.log("Il numero casuale generato è:", random);
+console.log('Il numero casuale generato è:', random);
 
 /* ESERCIZIO C
   Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
@@ -193,7 +193,7 @@ function whoIsBigger (num1, num2) {
     return num2;
   }
 }
-console.log (whoIsBigger(9,4));
+console.log (whoIsBigger(4,16));
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
 
@@ -224,7 +224,7 @@ console.log (deleteOne('Freddy Mercury is a king', true));
 function onlyLetters (stringa) {
   return stringa.replace (/\d/g, '');
 }
-console.log (onlyLetters('i like 5 delete 6 a number')); //DA CONCLUDERE
+console.log (onlyLetters('i like 5 delete 6 a number')); //DA CONCLUDERE PER ELIMINARE E NON SOSTITUIRE
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -237,7 +237,7 @@ function isThisAnEmail (stringa) {
     return false;
   }; 
 }
-console.log (isThisAnEmail('john.doe@example.com')); // DA CONCLUDERE
+console.log (isThisAnEmail('nico97.mecca@gmail.com')); // NON FUNZIONA
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
@@ -390,31 +390,50 @@ function searchAndDivide (stringa) {
       divide.unmatch.push(movies.Title);
     }
   };
-  return {
-    match ,
-    unmatch 
-  };
+  return divide;
 }
-console.log(searchAndDivide('Lord'));
+console.log(searchAndDivide('Lord')); //NON FUNZIONA
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 
+function removeIndex(index) {
+  return movies.filter((_,i) => i !== index);
+}
+console.log(removeIndex(5));
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+function getContainerElement() {
+  return document.getElementById("container");
+} ;
+
+console.log(getContainerElement());
+
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+function selectAllTdTags() {
+  const tdElements = document.querySelectorAll('td');
+  return tdElements;
+} ;
+selectAllTdTags();
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-
+function printTableData() {
+  const tdElements = document.querySelectorAll('td');
+  tdElements.forEach(td => {
+    console.log(td.innerText);
+  });
+}
+printTableData();
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
